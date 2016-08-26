@@ -92,7 +92,7 @@ module ASIN
     #
     def search(params={:SearchIndex => :Books, :ResponseGroup => :Medium})
       response = call(params.merge(:Operation => :ItemSearch))
-      arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_type(item, :item)}
+      arr = arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_type(item, :item)}
     end
 
     # Performs an +BrowseNodeLookup+ REST call against the Amazon API.
